@@ -1,0 +1,63 @@
+{
+  "conversationFormat": {
+    "version": "1.0",
+    "description": "Schema for Dalta AI conversations",
+    "messageStructure": {
+      "id": "unique message identifier",
+      "conversationId": "parent conversation ID",
+      "role": "user | assistant | system",
+      "content": "message text",
+      "timestamp": "ISO 8601 datetime",
+      "metadata": {
+        "tokens": "estimated token count",
+        "model": "model used for response",
+        "confidence": "response confidence score"
+      }
+    },
+    "systemPrompt": "You are Dalta AI, a helpful and intelligent assistant. Provide clear, concise responses. Always be respectful and honest.",
+    "contextWindow": {
+      "maxTokens": 4096,
+      "strategy": "sliding window with recent messages prioritized"
+    }
+  },
+  "exampleConversation": [
+    {
+      "id": "msg-1",
+      "conversationId": "conv-1",
+      "role": "system",
+      "content": "You are Dalta AI, a helpful assistant.",
+      "timestamp": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": "msg-2",
+      "conversationId": "conv-1",
+      "role": "user",
+      "content": "What is semantic search?",
+      "timestamp": "2024-01-01T10:01:00Z"
+    },
+    {
+      "id": "msg-3",
+      "conversationId": "conv-1",
+      "role": "assistant",
+      "content": "Semantic search uses embeddings to find contextually relevant results rather than just keyword matching.",
+      "timestamp": "2024-01-01T10:01:30Z",
+      "metadata": {
+        "tokens": 25,
+        "model": "gpt-4",
+        "confidence": 0.95
+      }
+    }
+  ],
+  "embeddingStrategy": {
+    "provider": "OpenAI or local (e.g., sentence-transformers)",
+    "dimension": 1536,
+    "updateFrequency": "on message creation",
+    "vectorDatabase": "Pinecone, Weaviate, or local approximate search"
+  },
+  "safetyFilters": ["Profanity detection", "PII redaction", "Harmful content detection", "Rate limiting per user"],
+  "rateLimiting": {
+    "messagesPerMinute": 10,
+    "messagesPerHour": 100,
+    "dailyLimit": 1000
+  }
+}

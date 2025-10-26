@@ -1,0 +1,98 @@
+{
+  "project": "Dalta AI PWA",
+  "mvpFeatures": [
+    {
+      "id": "auth-001",
+      "title": "User Authentication",
+      "description": "Email/password signup and login",
+      "acceptanceCriteria": [
+        "User can sign up with email and password",
+        "User can sign in with valid credentials",
+        "Invalid credentials show error message",
+        "Session persists across page reloads"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "chat-001",
+      "title": "Real-time Chat",
+      "description": "Send and receive messages",
+      "acceptanceCriteria": [
+        "User can send text messages",
+        "Messages appear in conversation",
+        "AI responds to user messages",
+        "Messages are timestamped",
+        "Conversation history is preserved"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "offline-001",
+      "title": "Offline Support",
+      "description": "Queue messages when offline",
+      "acceptanceCriteria": [
+        "App works without internet connection",
+        "Messages are queued when offline",
+        "Queued messages sync when online",
+        "Offline status is indicated to user"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "search-001",
+      "title": "Semantic Search",
+      "description": "Search conversation history",
+      "acceptanceCriteria": [
+        "User can search past messages",
+        "Search results are relevant",
+        "Results show context and timestamp",
+        "Search works offline with cached data"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "pwa-001",
+      "title": "PWA Installation",
+      "description": "Install as standalone app",
+      "acceptanceCriteria": [
+        "App is installable on mobile",
+        "App works offline",
+        "App has splash screen",
+        "App has app icon"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "a11y-001",
+      "title": "Accessibility",
+      "description": "WCAG 2.1 AA compliance",
+      "acceptanceCriteria": [
+        "Keyboard navigation works",
+        "Screen reader labels present",
+        "Color contrast meets WCAG AA",
+        "Focus indicators visible"
+      ],
+      "status": "done"
+    }
+  ],
+  "testScenarios": [
+    {
+      "scenario": "New User Signup",
+      "steps": ["Visit app", "Click 'Sign Up'", "Enter email and password", "Submit form", "Verify redirected to chat"]
+    },
+    {
+      "scenario": "Send Message Offline",
+      "steps": [
+        "Go offline (DevTools)",
+        "Send message",
+        "Verify 'Pending sync' indicator",
+        "Go online",
+        "Verify message syncs"
+      ]
+    },
+    {
+      "scenario": "Search Conversations",
+      "steps": ["Click Search button", "Enter search query", "Verify results appear", "Click result to view context"]
+    }
+  ]
+}
