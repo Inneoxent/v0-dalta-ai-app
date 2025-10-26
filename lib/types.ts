@@ -4,6 +4,17 @@ export interface User {
   createdAt: Date
 }
 
+export interface Agent {
+  id: string
+  name: string
+  description: string
+  icon: string
+  personality: string
+  model: "gpt-4" | "gpt-4-turbo" | "gpt-3.5-turbo"
+  systemPrompt: string
+  color: string
+}
+
 export interface Message {
   id: string
   conversationId: string
@@ -11,6 +22,7 @@ export interface Message {
   content: string
   timestamp: Date
   synced: boolean
+  agentId?: string
 }
 
 export interface Conversation {
